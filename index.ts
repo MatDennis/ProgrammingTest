@@ -26,6 +26,8 @@ if(matchs == null) {
     exit();
 } 
 
+
+
 //counting how many words are duplicated by checking; 
 //if the entry of obj is not defined, it will count it and add the value of 1
 //else if it is defined then it will increment by 1
