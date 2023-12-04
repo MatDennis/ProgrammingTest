@@ -286,6 +286,7 @@ for(let i = 0; i<matchs.length; i++) {
         obj[holderWord]++;
     }
 }
+//THE CHANGE
 
 //create an array of the objects
 const wordArray = Object.entries(obj);
