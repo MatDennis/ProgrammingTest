@@ -12,5 +12,6 @@ export default function punctuation(theText:string) {
     if(theTextPunc == null) {
         exit();
     } 
+
     return theTextPunc;
 }

@@ -249,41 +249,16 @@
 
 //import { kStringMaxLength } from "buffer";
 //import { getHashes, hkdf } from "crypto";
-import * as fs from "fs";
 import printOut from "./printOut";
 import punctuation from "./punctuation";
-
+import counter from "./counter";
+import reader from "./fileReader";
+import wordSort from "./wordSort";
 //obtain an input from the user to say where they want the file read from
-const argument = process.argv[2];
-//create a const to hold the information obtained from the directory of what the user has chosen. 
-const theString = fs.readFileSync(argument, 'utf-8');
-
-
+const filename = process.argv[2];
+const theString = reader(filename);
 const newString = punctuation(theString);
-//console.log(newString);
-
-
-//creating an object to store a string key with a number value
-const obj: Record<string,number> = { };
-
-//counting how many words are duplicated by checking; 
-//if the entry of obj is not defined, it will count it and add the value of 1
-//else if it is defined then it will increment by 1
-for(let i = 0; i<newString.length; i++) {
-    const holderWord = newString[i];
-    if(typeof obj[holderWord] === "undefined") {3
-        obj[holderWord] = 1;
-    } else {
-        //!!!!!!!!!CHECK IF THERE IS A BETTER AY OF ++!!!!!!!!!
-        obj[holderWord]++;
-    }
-}
-//THE CHANGE
-
-//create an array of the objects
-const wordArray = Object.entries(obj);
-
-//make the array alphabetical
-wordArray.sort();
-
-printOut(wordArray);
+const countedString = counter(newString);
+const wordArray = Object.entries(countedString);
+const sorted = wordSort(wordArray);
+printOut(sorted);
