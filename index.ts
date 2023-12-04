@@ -4,7 +4,10 @@ import { kStringMaxLength } from "buffer";
 import { getHashes, hkdf } from "crypto";
 import * as fs from "fs";
 
-const theString = fs.readFileSync('./thefile.txt', 'utf-8');
+//obtain an input from the user to say where they want the file read from
+const argument = process.argv[2];
+//create a const to hold the information obtained from the directory of what the user has chosen. 
+const theString = fs.readFileSync(argument, 'utf-8');
 //conver the string to all lowercase letters
 const newString = theString.toLowerCase();
 
@@ -28,7 +31,7 @@ if(matchs == null) {
 //else if it is defined then it will increment by 1
 for(let i = 0; i<matchs.length; i++) {
     const holderWord = matchs[i];
-    if(typeof obj[holderWord] === "undefined") {
+    if(typeof obj[holderWord] === "undefined") {3
         obj[holderWord] = 1;
     } else {
         //!!!!!!!!!CHECK IF THERE IS A BETTER AY OF ++!!!!!!!!!
