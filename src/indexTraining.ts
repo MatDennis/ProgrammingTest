@@ -23,7 +23,7 @@
 // if(userInput.length >= 5){
 //     console.log(`You Typed: ${userInput}`);
 // } else {
-//     console.log("wank");
+//     console.log("Less than 5");
 // }
 
 
@@ -246,8 +246,6 @@
 
 //import the use of the exit function.3
 
-//import { kStringMaxLength } from "buffer";
-//import { getHashes, hkdf } from "crypto";
 // import printOut from "./printOut";
 // import punctuation from "./punctuation";
 // import counter from "./counter";
