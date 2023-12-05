@@ -4,7 +4,7 @@
 
 #### Install
 
-1. Please obtain my project link via -> <-
+1. Please obtain my project link via -> https://github.com/MatDennis/ProgrammingTest.git <-
 2. bash "git clone 'weblink'"
 3. bash "cd 'into clone directory"
 4. bash "npm install"
