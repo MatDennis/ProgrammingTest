@@ -1,9 +1,37 @@
 # README
 
 ### Instructions
-To be able to use the project, please use 'ts-node index.ts' followed by the selected file path. For example i have included 'theFile.txt' to be an example file path (ts-node index.ts ./src/theFile.txt)
 
-However, to point at another file at choice. Please use for example; ts-node ./src/index.ts /Users/matth/Desktop/dothisfile.xt. Changing from /Users...txt to a directory of your choice.
+#### Install
+
+1. Please obtain my project link via -> <-
+2. bash "git clone 'weblink'"
+3. bash "cd 'into clone directory"
+4. bash "npm install"
+5. bash "npm run dev"
+6. bash "npm run test"
+
+#### Project
+To be able to use the project, please use 'ts-node index.ts' followed by the selected file path. For example i have included 'theFile.txt' to be an example file path (ts-node index.ts ./src/theFile.txt)
+``` bash
+ts-node ./src/index.ts ./src/theFile.txt
+```
+
+However, to point at another file at choice. Please use for example; ts-node ./src/index.ts /Users/matth/Desktop/dothisfile.xt. Changing from /Users...txt to a directory of your choice. Please only use .txt files. 
+
+``` bash
+ts-node ./src/index.ts //your directory here
+```
+
+#### Testing
+To be able to use the test, please use npx jest. 
+``` bash
+npx jest
+
+//or
+
+npm run test
+```
 
 ### Personal/Training Notes
 
@@ -20,10 +48,12 @@ However, to point at another file at choice. Please use for example; ts-node ./s
     - import
     - readfile (specific utf-8)
     - regex
+    - jest
 - Learn to type better variable and function names. Need to make things easier to read for another person.
 - Don't make branch names long (functional-refactor). Shorten, but make it easier to read. 
 - Learn some keyboard shortcuts, just discoverd ctrl+J. Lovely!
 - Learn some more shortcuts for git. E.G. git commit --amend
+- With jest, stop thinking it needs to be everyting, only need to test the little to know it works. 
 
 
 ### Special Notes
@@ -321,13 +351,19 @@ import punctuation from "./punctuation";
 import counter from "./counter";
 import reader from "./fileReader";
 import wordSort from "./wordSort";
-//obtain an input from the user to say where they want the file read from
+//variable for reading a specific file input from the user
 const filename = process.argv[2];
+//call the module to pull the data from the file
 const theString = reader(filename);
+//call the module to remove the whitespace and punctuation from the file
 const newString = punctuation(theString);
+//call the module to count the amount of words in the file
 const countedString = counter(newString);
+//create an array of the objects created
 const wordArray = Object.entries(countedString);
+//call the module to sort the array in alphabetical order
 const sorted = wordSort(wordArray);
+//call the module to print out the data
 printOut(sorted);
 ```
 ```typescript 
@@ -416,4 +452,53 @@ export default function punctuation(theText:string) {
 export default function wordSort(wordArray:[string,number][]) {
     return wordArray.sort();  
 }
+```
+## Testing modules
+```typescript
+//counter test
+
+import counter from "../../src/counter"
+
+test('Counting the words in the array, including duplicates', () => {
+    const inputData = ['string'] as RegExpMatchArray;
+
+    expect(counter(inputData)).toStrictEqual({
+        'string': 1
+    });
+})
+```
+```typescript
+import punctuation from "../../src/punctuation"
+
+test('Is the value the same', () => {
+    const holder = ['string'] as RegExpMatchArray;
+    expect(punctuation('string')).toStrictEqual(holder);
+})
+
+test('Has the whitespace and punct gone?', () => {
+    const result = punctuation('string string');
+
+    expect(result[0]).toBe('string');
+    expect(result[1]).toBe('string');
+})
+
+test('Is it all lower?', () => {
+    const result = punctuation('STRING STRING');
+
+    expect(result[0]).toBe('string');
+    expect(result[1]).toBe('string');
+});
+```
+```typescript
+import wordSort from "../../src/wordSort"
+
+test('Is the value the same', () => {
+    const holderArray:[string,number][] = [['string', 1]];
+    expect(wordSort(holderArray)).toStrictEqual([['string', 1]]);
+})
+
+test('Is this alphabetical', () => {
+    const holderArray:[string,number][] = [['c', 1],['b', 1],['a', 1]];
+    expect(wordSort(holderArray)).toStrictEqual([['a', 1],['b', 1],['c', 1]]);
+})
 ```
