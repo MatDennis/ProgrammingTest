@@ -23,6 +23,7 @@ However, to point at another file at choice. Please use for example; ts-node ./s
 - Learn to type better variable and function names. Need to make things easier to read for another person.
 - Don't make branch names long (functional-refactor). Shorten, but make it easier to read. 
 - Learn some keyboard shortcuts, just discoverd ctrl+J. Lovely!
+- Learn some more shortcuts for git. E.G. git commit --amend
 
 
 ### Special Notes
