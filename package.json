@@ -1,5 +1,11 @@
 {
+  "scripts": {
+    "dev": "ts-node ./src/index.ts ./src/theFile.txt",
+    "test": "npx jest"
+  },
   "devDependencies": {
-    "@types/node": "^20.10.2"
+    "@types/node": "^20.10.2",
+    "ts-jest": "^29.1.1",
+    "@types/jest": "^29.5.10"
   }
 }

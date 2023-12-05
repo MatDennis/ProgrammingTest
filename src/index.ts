@@ -18,3 +18,5 @@ const wordArray = Object.entries(countedString);
 const sorted = wordSort(wordArray);
 //call the module to print out the data
 printOut(sorted);
+
+//printOut(wordSort(Object.entries(counter(punctuation(reader(process.argv[2]))))));

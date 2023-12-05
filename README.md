@@ -11,7 +11,7 @@ However, to point at another file at choice. Please use for example; ts-node ./s
     - ${}
     - Template literals
     - arrow functions
-    -  the differences of for and foreach further
+    - the differences of for and foreach further
     - datatypes
     - objects
     - typeof
