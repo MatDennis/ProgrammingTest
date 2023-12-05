@@ -1,3 +1,4 @@
+//function to bring in the newly formatted text from file
 export default function counter(newString:RegExpMatchArray) {
     //creating an object to store a string key with a number value
     const obj: Record<string,number> = { };
@@ -9,7 +10,7 @@ export default function counter(newString:RegExpMatchArray) {
         if(typeof obj[holderWord] === "undefined") {3
             obj[holderWord] = 1;
         } else {
-            //!!!!!!!!!CHECK IF THERE IS A BETTER AY OF ++!!!!!!!!!
+            //!potential better use of ++
             obj[holderWord]++;
         }
     }
